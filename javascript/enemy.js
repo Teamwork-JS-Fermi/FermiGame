@@ -1,3 +1,4 @@
+var goingDown=0;
 var canvas=document.getElementById("canvas");
 var ctx=canvas.getContext('2d');
 var pos={left:false,right:true,bottom:false};
@@ -19,27 +20,35 @@ var pos={left:false,right:true,bottom:false};
     }
     function checkPosition(){
         if(enemy.position.x>=canvas.width-23.3){
+            goingDown+=1;
             pos.right=false;
             pos.left=true;
             enemyGo();
         }
         if(enemy.position.x<=1.5){
+            goingDown+=2;
             pos.left=false;
             pos.right=true;
+            pos.bottom=true;
             enemyGo();
+        }
+        if(goingDown%2==0&&goingDown!=0){
+            goingDown=0;
+            enemy.position.y+2;
         }
     }
     function enemyGo(){
         if(pos.left){
-            enemy.position.set(enemy.position.x-1.5,enemy.position.y+0);
+            enemy.position.set(enemy.position.x-0.5,enemy.position.y+0);
 
         }
         if(pos.right){
-            enemy.position.set(enemy.position.x+1.5,enemy.position.y+0);
+            enemy.position.set(enemy.position.x+0.5,enemy.position.y+0);
 
         }
         if(pos.bottom){
-            enemy.position.set(enemy.position.x,enemy.position.y+0.5);
+            enemy.position.set(enemy.position.x,enemy.position.y+5);
+            pos.bottom=false;
 
         }
     }
