@@ -7,6 +7,41 @@
     <script src="javascript/mainGame.js"></script>
     <script src="javascript/Player.js" type="text/javascript" defer></script>
     <script src="javascript/enemy.js" type="text/javascript " defer></script>
+
+    <script>
+        var turnCounter = 1;
+        var scorePlayer1 = 0;
+        var player1;
+        var gameOver = false;
+
+        function fillField(fieldId) {
+            turnCounter++;
+            var empty = document.getElementById(fieldId).value == '';
+            if (turnCounter % 2 == 0 && empty && !gameOver) {
+                document.getElementById(fieldId).value = 'x';
+            }
+            else if (turnCounter % 2 == 1 && empty && !gameOver) {
+                document.getElementById(fieldId).value = 'o';
+            }
+        }
+
+        function beginGame() {
+            document.getElementById('game-field').style.display = 'flex';
+            document.getElementById('players').style.display = 'none';
+            player1 = document.getElementById('player1').value;
+            if (player1 == '') {
+                player1 = 'player1';
+            }
+        }
+
+        function resetGame() {
+            document.getElementById('winner').style.display = 'none';
+            turnCounter = 1;
+            gameOver = false;
+        }
+    </script>
+
+
     <style>
         #canvas{
            background-image: url("sprites/greenBackgroundPlanet.jpg");
@@ -14,14 +49,71 @@
             width: 650px;
             height: 400px;
         }
+
+        .wrapper{
+            font-family: Courier, Courier;
+            display: block;
+            width: 654px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1{
+            text-align: center;
+            margin: 20px auto;
+            font-weight: 300;
+        }
+
+        #players{
+            margin: 60px auto;
+        }
+        
+        #players input {
+            display: block;
+            padding: 8px 20px;
+            margin: 20px auto;
+            font-size: 1.4rem;
+            font-family: Courier, Courier;
+            text-align: center;
+            outline: 0;
+        }
+
+        #game-field {
+            display: none;
+        }
+
+        #winner {
+            display: none;
+        }
+
+        #winner .score {
+            font-size: 1.3rem;
+        }
     </style>
 </head>
-<canvas id="canvas"></canvas>
+
 <body>
 
-<script>
+<div class="wrapper">
+    <h1>Fermi Game</h1>
+    <div id="players">
+        <input type="text" placeholder="Player name" id="player1" />
+        <input type="submit" value="Play" onclick="beginGame()" />
+    </div>
 
-</script>
+    <div id="game-field">
+        <canvas id="canvas"></canvas>
+        <!--<script>-->
+
+        <!--</script>-->
+    </div>
+
+    <div id="winner">
+        <input type="submit" value="Play again" onclick="resetGame()" />
+        <div class="score">Score:</div>
+        <div class="score" id="scoreboard"></div>
+    </div>
+</div>
 
 </body>
 </html>
