@@ -12,7 +12,22 @@ var enemyArray = {};
 for(var i = 1; i <= 40; i++) {
     goingDownArray[i] = 0;
     posArray[i] = {left: false, right: true, bottom: false};
-    enemyArray[i] = new Animation(23.3, 14, 0, 0, 2, 'sprites/invaders.png', 1, 0, 0);
+    if(i<=16){
+        enemyArray[i] = new Animation(23.3, 14, 0, 0, 2, 'sprites/invadersNowfirst.png', 1, 1, 0);
+    }
+    else{
+        if(i<=32&&i>16){
+            enemyArray[i] = new Animation(23.3, 14, 0, 0, 2, 'sprites/invadersNowsecond.png', 1, 1, 0);
+        }
+        else if(i>32){
+            enemyArray[i] = new Animation(23.3, 14, 0, 0, 2, 'sprites/invadersNowthird.png', 1, 1, 0);
+
+        }
+    }
+
+
+
+
     enemyArray[i].position.x=changingWidth;
     enemyArray[i].position.y=changingHeight;
     changingWidth += 23.3;
@@ -44,9 +59,10 @@ for(var i = 1; i <= 40; i++) {
         for(var i = 1; i <= 40; i++) {
             if (enemyArray[i].position.x >= canvas.width - 23.3) {
                 for(var j = 1; j <= 40; j++) {
-                    goingDownArray[j] += 1;
+                    goingDownArray[j] += 2;
                     posArray[j].right = false;
                     posArray[j].left = true;
+                    posArray[j].bottom = true;
                 }
                 enemyGo();
             }
