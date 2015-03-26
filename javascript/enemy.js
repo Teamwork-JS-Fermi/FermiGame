@@ -43,34 +43,43 @@ for(var i = 1; i <= 40; i++) {
     function checkPosition(){
         for(var i = 1; i <= 40; i++) {
             if (enemyArray[i].position.x >= canvas.width - 23.3) {
-                goingDownArray[i] += 1;
-                posArray[i].right = false;
-                posArray[i].left = true;
+                for(var j = 1; j <= 40; j++) {
+                    goingDownArray[j] += 1;
+                    posArray[j].right = false;
+                    posArray[j].left = true;
+                }
                 enemyGo();
             }
             if (enemyArray[i].position.x <= 1.5 && posArray[i].left == true) {
-                goingDownArray[i] += 2;
-                posArray[i].left = false;
-                posArray[i].right = true;
-                posArray[i].bottom = true;
+                for(var j = 1; j <= 40; j++) {
+                    goingDownArray[j] += 2;
+                    posArray[j].left = false;
+                    posArray[j].right = true;
+                    posArray[j].bottom = true;
+                }
                 enemyGo();
             }
             if (goingDownArray[i] % 2 == 0 && goingDownArray[i] != 0) {
-                goingDownArray[i] = 0;
-                enemyArray[i].position.y + 2;
+                for(var j = 1; j <= 40; j++) {
+                    goingDownArray[j] = 0;
+                    enemyArray[j].position.y + 2;
+                }
             }
         }
     }
     function enemyGo(){
         for(var i = 1; i <= 40; i++) {
-            if (posArray[i].left) {
-                enemyArray[i].position.set(enemyArray[i].position.x - 0.5, enemyArray[i].position.y + 0);
+            if (posArray[i].left == true) {
+                enemyArray[i].position.x -= 0.5;
+                //enemyArray[i].position.set(enemyArray[i].position.x - 0.5, enemyArray[i].position.y + 0);
             }
-            if (posArray[i].right) {
-                enemyArray[i].position.set(enemyArray[i].position.x + 0.5, enemyArray[i].position.y + 0);
+            if (posArray[i].right == true) {
+                enemyArray[i].position.x += 0.5;
+                //enemyArray[i].position.set(enemyArray[i].position.x + 0.5, enemyArray[i].position.y + 0);
             }
-            if (posArray[i].bottom) {
-                enemyArray[i].position.set(enemyArray[i].position.x, enemyArray[i].position.y + 5);
+            if (posArray[i].bottom == true) {
+                enemyArray[i].position.y += 5;
+                //enemyArray[i].position.set(enemyArray[i].position.x, enemyArray[i].position.y + 5);
                 posArray[i].bottom = false;
             }
         }
