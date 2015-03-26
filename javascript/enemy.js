@@ -65,6 +65,10 @@ for(var i = 1; i <= 40; i++) {
                     enemyArray[j].position.y + 2;
                 }
             }
+            if(enemyArray[i].position.y<=canvas.height-23.3){
+                //score-- or Game Over
+                //TO DO
+            }
         }
     }
     function enemyGo(){
