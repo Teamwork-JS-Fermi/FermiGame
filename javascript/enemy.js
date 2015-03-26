@@ -12,7 +12,7 @@ var enemyArray = {};
 for(var i = 1; i <= 40; i++) {
     goingDownArray[i] = 0;
     posArray[i] = {left: false, right: true, bottom: false};
-    enemyArray[i] = new Animation(23.3, 14, 0, 0, 6, 'sprites/enemy.png', 0.5, 0, 0);
+    enemyArray[i] = new Animation(23.3, 14, 0, 0, 2, 'sprites/invaders.png', 1, 0, 0);
     enemyArray[i].position.x=changingWidth;
     enemyArray[i].position.y=changingHeight;
     changingWidth += 23.3;
