@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d73fb599-a3ba-4bb7-bb7e-e5d013b070ae" name="Default" comment="" />
+    <list default="true" id="d73fb599-a3ba-4bb7-bb7e-e5d013b070ae" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/enemy.js" afterPath="$PROJECT_DIR$/javascript/enemy.js" />
+    </list>
     <ignored path="FermiGame.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +29,8 @@
       <file leaf-file-name="enemy.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/enemy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69020504" vertical-offset="754" max-vertical-offset="1632">
-              <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.07744875" vertical-offset="0" max-vertical-offset="1632">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -275,8 +277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/enemy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69020504" vertical-offset="754" max-vertical-offset="1632">
-          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.07744875" vertical-offset="0" max-vertical-offset="1632">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

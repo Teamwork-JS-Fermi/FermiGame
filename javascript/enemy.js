@@ -2,7 +2,7 @@
 //var enemy = new Animation(23.3,14,0,0,6,'sprites/enemy.png',1,0,0);
 var canvas=document.getElementById("canvas");
 var ctx=canvas.getContext('2d');
-var changingHeight = 0;
+var changingHeight = 20;
 var changingWidth = 0;
 
 var goingDownArray = {};
