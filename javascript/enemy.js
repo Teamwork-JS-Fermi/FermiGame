@@ -2,7 +2,7 @@
 //var enemy = new Animation(23.3,14,0,0,6,'sprites/enemy.png',1,0,0);
 var canvas=document.getElementById("canvas");
 var ctx=canvas.getContext('2d');
-var changingHeight = 20;
+var changingHeight = 15; // qwe
 var changingWidth = 0;
 
 var goingDownArray = {};
@@ -25,15 +25,12 @@ for(var i = 1; i <= 40; i++) {
         }
     }
 
-
-
-
     enemyArray[i].position.x=changingWidth;
     enemyArray[i].position.y=changingHeight;
     changingWidth += 23.3;
     if(i == 8 || i == 16 || i == 24 || i == 32) {
         changingWidth = 0;
-        changingHeight += 14;
+        changingHeight += 12; // tova e neshtoto koeto sum promenil;    
     }
 }
 
