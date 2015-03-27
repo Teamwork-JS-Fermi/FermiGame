@@ -55,11 +55,11 @@ for(var i = 1; i <= 40; i++) {
     function checkPosition(){
         for(var i = 1; i <= 40; i++) {
             if (enemyArray[i].position.x >= canvas.width - 23.3) {
-                for(var j = 1; j <= 40; j++) {
-                    goingDownArray[j] += 2;
-                    posArray[j].right = false;
-                    posArray[j].left = true;
-                    posArray[j].bottom = true;
+                for(var v = 1; v <= 40; v++) {
+                    goingDownArray[v] += 2;
+                    posArray[v].right = false;
+                    posArray[v].left = true;
+                    posArray[v].bottom = true;
                 }
                 enemyGo();
             }
@@ -73,12 +73,12 @@ for(var i = 1; i <= 40; i++) {
                 enemyGo();
             }
             if (goingDownArray[i] % 2 == 0 && goingDownArray[i] != 0) {
-                for(var j = 1; j <= 40; j++) {
-                    goingDownArray[j] = 0;
-                    enemyArray[j].position.y + 2;
+                for(var w = 1; w <= 40; w++) {
+                    goingDownArray[w] = 0;
+                    enemyArray[w].position.y + 2;
                 }
             }
-            if(enemyArray[i].position.y<=canvas.height-23.3){
+            if(enemyArray[i].position.y>=canvas.height){
                 //score-- or Game Over
                 //TO DO
             }
