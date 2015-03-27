@@ -97,8 +97,13 @@
 <div class="wrapper">
     <h1>Fermi Game</h1>
     <div id="players">
-        <input type="text" placeholder="Player name" id="player1" />
-        <input type="submit" value="Play" onclick="beginGame()" />
+        <!--<input type="text" placeholder="Player name" id="player1" />-->
+        <!--<input type="submit" value="Play" onclick="beginGame()" />-->
+
+        <input type="text" placeholder="Player name" id="player1" onkeydown="if (event.keyCode == 13)
+        document.getElementById('btnSearch').click()"/>
+        <input id="btnSearch" type="submit" value="Play" onclick="beginGame()"/>
+
     </div>
 
     <div id="game-field">
