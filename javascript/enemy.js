@@ -13,8 +13,8 @@ for(var i = 1; i <= 40; i++) {
     goingDownArray[i] = 0;
     posArray[i] = {left: false, right: true, bottom: false};
     if(i<=16){
-        enemyArray[i] = new drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)
-        //enemyArray[i] = new Animation(21, 14, 0, 0, 2, 'sprites/enemy1.png', 1, 0, 1);
+        //enemyArray[i] = new drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)
+        enemyArray[i] = new Animation(21, 14, 0, 0, 2, 'sprites/enemy1.png', 1, 0, 1);
     }
     else{
         if(i<=32&&i>16){
