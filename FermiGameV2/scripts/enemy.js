@@ -159,7 +159,8 @@
             setTimeout(spawnEnemy, 5000);
         }
         if (enemyToDestroy.length) {
-            document.getElementById("score").innerHTML = score;
+            document.getElementById("score").innerHTML = "Score:"+score;
+            document.getElementById("health").innerHTML="Health:"+health;
         }
     }
 

@@ -51,6 +51,17 @@ h1{
     color: #000000;
     font-weight: bold;
     font-size: 22px;
+    float:left;
+}
+#health{
+    height: 30px;
+    margin: 0 auto;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: right;
+    display: block;
+    float:right;
 }
 
 #gameContainer {
