@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Shooter Game</title>
+        <script src="scripts/mainGame.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <h1>Fermi Game</h1>
+            <div id="players">
+                <input type="text" id="player"
+                       placeholder="Player name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Player name'"
+                       onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/>
+                <input id="btnSearch" type="submit" value="Play" onclick="beginGame()"/>
+            </div>
+
+            <div id="game-field">
+                <div id="gameContainer">
+                    <div id="score">Score:0</div>
+<!--                     <div id="health">Health:5</div> -->
+                    <span class="health" id="timespan"></span>
+                    <div  value="Start" id="btnStart">
+                    <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+                <script src="scripts/enemy.js"></script>
+            </div>
+            <div id="winner">
+                <input type="submit" value="Play again" onclick="resetGame()" />
+                <div class="scoreX">Score:</div>
+                <div class="scoreX" id="scoreboard"></div>
+            </div>
+        </div>
+        <script>
+
+var count = 5;
+var t = null;
+var timespan;
+
+window.onload = init;
+
+function init(){
+ timespan = document.getElementById('timespan');
+ document.getElementById('btnStart').onclick = start;
+ cddisplay();
+}
+
+function cddisplay() {
+  timespan.innerHTML = "Time Left: " + count;
+}
+   
+function start(){ // starts countdown
+  if (t==null && count>0){
+    timespan.style.color = 'red';
+    countdown();
+  }
+}
+
+function countdown() {
+  cddisplay();
+  if (count == 0) {
+    timespan.style.color = 'black';
+    alert('GameOver ' + 'Score: ' + score);
+    location.reload(); // reload page
+  }else{
+     count--;
+     t = setTimeout("countdown()", 100);
+  }
+}
+   
+
+
+   
+</script>
+    </body>
+</html>
+<!-- <body onload="updateClock(); setInterval('updateClock()', 1000 )"> -->
