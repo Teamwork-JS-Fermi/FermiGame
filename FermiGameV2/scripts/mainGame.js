@@ -1,7 +1,7 @@
 var turnCounter = 1;
 var scorePlayer = 0;
 var player;
-var health=0;
+var health=5;
 var gameOver = false;
 
 //function fillField(fieldId) {
@@ -42,4 +42,13 @@ function resetGame() {
     turnCounter = 1;
     gameOver = false;
 }
+// start interval
+var interval = window.setInterval(function() {
+    health--;
+}, 500)();
+
+
+// clear interval
+//
+//interval = window.clearInterval(interval);
 
