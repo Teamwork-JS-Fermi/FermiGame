@@ -1,8 +1,9 @@
 body{
     font-family: Courier, Courier;
+    background-color: black;
 }
 #canvas{
-    border:2px solid #000000;
+    border:2px solid #fff;
     cursor: crosshair;
 }
 
@@ -23,7 +24,7 @@ h1{
     position: absolute;
     top: 40vh;
     right: 30;
-    color: darkred;
+    color: #fff;
     font-family: helvetica;
     font-weight: 500;
     font-size: 40;
@@ -87,7 +88,7 @@ h1{
     position: absolute;
     top: 40vh;
     left: 30;
-    color: darkred;
+    color: #fff;
     font-family: helvetica;
     font-weight: 500;
     font-size: 20;
