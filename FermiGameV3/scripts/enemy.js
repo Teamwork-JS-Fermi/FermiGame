@@ -96,10 +96,27 @@
             numberOfFrames: 2, 
             ticksPerFrame: i
         });
+        if(score>100){
+            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].scaleRatio = Math.random() * 0.3 + 0.3;
+        }
+        else if(score>200){
+            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].scaleRatio = Math.random() * 0.25 + 0.25;
+        }
+        else if(score>300){
+            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].scaleRatio = Math.random() * 0.2 + 0.2;
+        }
+        else{
+            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+            enemies[enemyIndex].scaleRatio = Math.random() * 0.4 + 0.4;
+        }
 
-        enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-        enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-        enemies[enemyIndex].scaleRatio = Math.random() * 0.4 + 0.4;
 
         //TODO: Load sprite sheet
         enemyImg.src = "enemy1.png";
