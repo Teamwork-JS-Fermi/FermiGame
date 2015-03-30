@@ -153,7 +153,7 @@
         }
         // Destroy tapped enemies
         for (i = 0; i < enemyToDestroy.length; i += 1) {
-
+            health+=1;
             score += parseInt(enemyToDestroy[i].scaleRatio * 10, 10);
             destroyEnemy(enemyToDestroy[i]);
             setTimeout(spawnEnemy, 5000);

@@ -1,6 +1,7 @@
 var turnCounter = 1;
 var scorePlayer = 0;
 var player;
+var health=0;
 var gameOver = false;
 
 //function fillField(fieldId) {
