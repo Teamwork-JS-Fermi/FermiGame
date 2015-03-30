@@ -59,7 +59,7 @@ h1{
 #score {
     height: 30px;
     margin: 0 auto;
-    color: #000000;
+    color: #fff;
     font-weight: bold;
     font-size: 22px;
     float:left;
@@ -67,7 +67,7 @@ h1{
 .health{
     height: 30px;
     margin: 0 auto;
-    color: #000000;
+    color: #fff;
     font-weight: bold;
     font-size: 22px;
     text-align: right;
