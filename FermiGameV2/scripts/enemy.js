@@ -1,6 +1,6 @@
 (function () {
 
-    var numEnemies = 20,
+    var numEnemies = 10,
         score = 0,
         enemies = [],
         canvas;
@@ -65,7 +65,7 @@
         return that;
     }
 
-    function destroyCoin (enemy) {
+    function destroyEnemy (enemy) {
         var i;
         for (i = 0; i < enemies.length; i += 1) {
             if (enemies[i] === enemy) {
@@ -87,20 +87,22 @@
         // Create sprite
         enemies[enemyIndex] = sprite({
             context: canvas.getContext("2d"),
-            width: 200, // NEDKOOO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            height: 64, // NEDKOOO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
+        //Window size
+            width: 200, 
+            height: 64, 
             image: enemyImg,
-            numberOfFrames: 2, // NEDKOOO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            numberOfFrames: 2, 
             ticksPerFrame: i
         });
 
         enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-        enemies[enemyIndex].y = Math.random() * (canvas.height - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-        enemies[enemyIndex].scaleRatio = Math.random() * 0.5 + 0.5;
+        enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+        enemies[enemyIndex].scaleRatio = Math.random() * 0.4 + 0.4;
 
-        // Load sprite sheet
-        enemyImg.src = "enemy1.png"; // NEDKOOO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //enemyImg.src = "../sprites/enemy2.png"; //
+        //TODO: Load sprite sheet
+        enemyImg.src = "enemy1.png";
+        // enemyImg.src = "sprites/enemy2.png"; //
         //enemyImg.src = "enemy2.png";
     }
 
@@ -153,8 +155,8 @@
         for (i = 0; i < enemyToDestroy.length; i += 1) {
 
             score += parseInt(enemyToDestroy[i].scaleRatio * 10, 10);
-            destroyCoin(enemyToDestroy[i]);
-            setTimeout(spawnEnemy, 1000);
+            destroyEnemy(enemyToDestroy[i]);
+            setTimeout(spawnEnemy, 5000);
         }
         if (enemyToDestroy.length) {
             document.getElementById("score").innerHTML = score;
