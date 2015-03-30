@@ -71,3 +71,14 @@ h1{
 #gameContainer canvas {
     background-image: url("../sprites/greenBackgroundPlanet.jpg");
 }
+
+
+#magic {
+    position: absolute;
+    top: 50vh;
+    left: 30;
+    color: darkred;
+    font-family: helvetica;
+    font-weight: 500;
+    font-size: 20;
+}
