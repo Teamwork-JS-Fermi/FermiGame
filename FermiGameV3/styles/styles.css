@@ -15,9 +15,18 @@ body{
 }
 
 h1{
-    text-align: center;
+/*    text-align: center;
     margin: 10px auto;
-    font-weight: 300;
+    font-weight: 300;*/
+
+
+    position: absolute;
+    top: 40vh;
+    right: 30;
+    color: darkred;
+    font-family: helvetica;
+    font-weight: 500;
+    font-size: 40;
 }
 
 #players{
@@ -76,7 +85,7 @@ h1{
 
 #magic {
     position: absolute;
-    top: 50vh;
+    top: 40vh;
     left: 30;
     color: darkred;
     font-family: helvetica;
