@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Shooter Game</title>
+        <script src="scripts/mainGame.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <h1>Fermi Game</h1>
+            <div id="players">
+                <input type="text" id="player"
+                       placeholder="Player name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Player name'"
+                       onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/>
+                <input id="btnSearch" type="submit" value="Play" onclick="beginGame()"/>
+            </div>
+
+            <div id="game-field">
+                <div id="gameContainer">
+                    <div id="score">0</div>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <script src="scripts/enemy.js"></script>
+            </div>
+
+            <div id="winner">
+                <input type="submit" value="Play again" onclick="resetGame()" />
+                <div class="scoreX">Score:</div>
+                <div class="scoreX" id="scoreboard"></div>
+            </div>
+        </div>
+    </body>
+</html>
