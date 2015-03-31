@@ -1,10 +1,14 @@
-(function () {
-
-    var numEnemies = 10,
+    var numEnemies = 9,
         score = 0,
         enemies = [],
-        canvas;
+        canvas,
+		count = 60,
+		t = null,
+		timespan;
 
+		window.onload = init;
+
+function gameupdate () { 
     function gameLoop () {
         var i;
         window.requestAnimationFrame(gameLoop);
@@ -96,29 +100,46 @@
             numberOfFrames: 2, 
             ticksPerFrame: i
         });
-        if(score>100){
-            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].scaleRatio = Math.random() * 0.3 + 0.3;
+
+        function smallEnemies (sc, x, y) {
+	        	if(score>=sc){
+	            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+	            enemies[enemyIndex].y = Math.random() * ((canvas.height) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+	            enemies[enemyIndex].scaleRatio = Math.random() * x + y;
+	        }
         }
-        else if(score>200){
-            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].scaleRatio = Math.random() * 0.25 + 0.25;
-        }
-        else if(score>300){
-            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].scaleRatio = Math.random() * 0.2 + 0.2;
-        }
-        else{
-            enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].y = Math.random() * ((canvas.height -200) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
-            enemies[enemyIndex].scaleRatio = Math.random() * 0.4 + 0.4;
-        }
+        smallEnemies(0,0.45,0.45);
+        smallEnemies(100,0.35,0.35);
+        smallEnemies(200,0.30,0.30);
+        smallEnemies(300,0.25,0.25);
+        smallEnemies(400,0.20,0.20);
+        smallEnemies(500,0.19,0.19);
+        smallEnemies(600,0.185,0.185);
+        smallEnemies(700,0.18,0.18);
+        smallEnemies(800,0.175,0.175);
+        smallEnemies(900,0.17,0.17);
+        smallEnemies(1000,0.16,0.16);
+        smallEnemies(1100,0.15,0.15);
 
 
-        //TODO: Load sprite sheet
+        function bigEnemies (sc1, sc2, x,y, ct) {
+			if (score>sc1 & score<sc2) {
+			enemies[enemyIndex].x = Math.random() * (canvas.width - enemies[enemyIndex].getFrameWidth() * enemies[enemyIndex].scaleRatio);
+			enemies[enemyIndex].y = Math.random() * ((canvas.height) - enemies[enemyIndex].height * enemies[enemyIndex].scaleRatio);
+			enemies[enemyIndex].scaleRatio = Math.random() * x + y;
+			count+=ct;
+			}
+        }
+        bigEnemies(250, 257,1.9,1.9,15);
+        bigEnemies(400, 407,1.9,1.9,15);
+        bigEnemies(540, 547,1.9,1.9,15);
+        bigEnemies(660, 667,1.9,1.9,15);
+        bigEnemies(780, 790,1.9,1.9,20);
+        bigEnemies(940, 950,1.9,1.9,20);
+        bigEnemies(1090, 1100,1.9,1.9,20);
+        bigEnemies(1250, 1260,1.9,1.9,20);
+
+
         enemyImg.src = "enemy1.png";
         // enemyImg.src = "sprites/enemy2.png"; //
         //enemyImg.src = "enemy2.png";
@@ -175,7 +196,7 @@
             count+=5; // score--
             score += parseInt(enemyToDestroy[i].scaleRatio * 10, 10);
             destroyEnemy(enemyToDestroy[i]);
-            setTimeout(spawnEnemy, 5000);
+            setTimeout(spawnEnemy, 4000);
         }
         if (enemyToDestroy.length) {
             document.getElementById("score").innerHTML = "Score:"+score;
@@ -195,5 +216,40 @@
     gameLoop();
     canvas.addEventListener("touchstart", tap);
     canvas.addEventListener("mousedown", tap);
-} ());
+}
+gameupdate(); 
 
+
+
+    function init(){
+ timespan = document.getElementById('timespan');
+ document.getElementById('btnStart').onclick = start;
+ cddisplay();
+}
+
+function cddisplay() {
+  timespan.innerHTML = "Time Left: " + count;
+}
+   
+function start(){ // starts countdown
+  if (t==null && count>0){
+    timespan.style.color = 'red';
+    countdown();
+  }
+}
+
+function countdown() {
+  cddisplay();
+  if (count == 0) {
+    timespan.style.color = 'white';
+    alert('GameOver ' + 'Score: ' + score);
+    document.getElementById("score").innerHTML = 'Score:' + 0;
+    score = 0;
+    count = 40;
+    t = null;
+    init();
+  }else{
+     count--;
+     t = setTimeout("countdown()", 100);
+  }
+}
