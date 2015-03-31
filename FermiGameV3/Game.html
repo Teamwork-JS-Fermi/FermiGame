@@ -36,47 +36,6 @@
                 <div class="scoreX" id="scoreboard"></div>
             </div>
         </div>
-        <script>
-
-var count = 50;
-var t = null;
-var timespan;
-
-window.onload = init;
-
-function init(){
- timespan = document.getElementById('timespan');
- document.getElementById('btnStart').onclick = start;
- cddisplay();
-}
-
-function cddisplay() {
-  timespan.innerHTML = "Time Left: " + count;
-}
-   
-function start(){ // starts countdown
-  if (t==null && count>0){
-    timespan.style.color = 'red';
-    countdown();
-  }
-}
-
-function countdown() {
-  cddisplay();
-  if (count == 0) {
-    timespan.style.color = 'white';
-    alert('GameOver ' + 'Score: ' + score);
-    location.reload(); // reload page
-  }else{
-     count--;
-     t = setTimeout("countdown()", 100);
-  }
-}
-   
-
-
-   
-</script>
     </body>
 </html>
 <!-- <body onload="updateClock(); setInterval('updateClock()', 1000 )"> -->
